@@ -1,30 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {Playlist} from './interfaces'
+
 @Component({
   selector: 'sg-playlist-details',
   template: `
-<div>
+<div [hidden]="edit">
   <p>Name {{playlist.name}}</p>
   <p> {{playlist.favourite? "Favourite" : "Not favourite"}}</p>
   <p [style.color]="playlist.color">Color</p>
+  <button class="btn btn-default" (click)="edit = !edit">Edit</button>
 </div>
 
-  <div>
+<hr/>
+
+
+  <div [hidden]="!edit">
     <div class="form-group">
       <label>Nazwa: </label>
-        <input type="text" [value]="playlist.name" class="form-control" (keyup)=" playlist.name = $event.target.value "> <!--przekazuje obiect-->
+        <input type="text" class="form-control" [(ngModel)]="playlist.name">
     </div>
 
     <div class="form-group">
       <label>Favourite: </label>
-        <input type="checkbox" [checked]="playlist.favourite" (change)=" playlist.favourite = $event.target.checked "> <!--przekazuje stringa-->
+        <input type="checkbox" [(ngModel)]="playlist.favourite"> 
     </div>
 
     <div class="form-group">
       <label>Color: </label>
-        <input type="color" [value]="playlist.color" (change)=" playlist.color = $event.target.value ">>
+        <input type="color" [(ngModel)]="playlist.color">
 
-        <button class="btn btn-default">Cancel</button>
+        <button class="btn btn-default" (click)="edit = !edit">Cancel</button>
         <button class="btn btn-success">Save</button>
     </div>
   </div>
@@ -33,12 +38,14 @@ import {Playlist} from './interfaces'
 })
 export class PlaylistDetailsComponent implements OnInit {
 
-  playlist:Playlist = {
-    id: null,
-    name: 'Angular Hits',
-    color: '#ff0000',
-    favourite: true
+  edit = false;
+
+  @Input('playlist')
+  set playlistSetter(playlist) {
+    this.playlist = Object.assign({}, playlist);
   }
+
+  playlist:Playlist
 
   constructor() { }
 

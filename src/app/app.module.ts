@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PlaylistsListComponent } from './playlists/playlists-list.component';
@@ -16,7 +17,8 @@ import { PlaylistsComponent } from './playlists/playlists.component';
     PlaylistsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, //ngStyle, ngForms, ngClass ....
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
