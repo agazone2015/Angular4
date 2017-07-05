@@ -9,7 +9,10 @@ import { PlaylistsListItemComponent } from './playlists/playlists-list-item.comp
 import { PlaylistDetailsComponent } from './playlists/playlist-details.component';
 import { HightlightDirective } from './playlists/hightlight.directive';
 
-import { PlaylistsService } from './playlists/playlists.service'
+import { PlaylistsService } from './playlists/playlists.service';
+import { MusicSearchModule } from './music-search/music-search.module';
+import { HttpModule } from '@angular/http'
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { PlaylistsService } from './playlists/playlists.service'
   ],
   imports: [
     BrowserModule, //ngStyle, ngForms, ngClass ....
-    FormsModule
+    FormsModule,
+    MusicSearchModule,
+    HttpModule
   ],
   providers: [
     // {provider: PlaylistsService, useClass: playlistsService}
