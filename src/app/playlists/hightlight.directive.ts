@@ -11,7 +11,7 @@ export class HightlightDirective {
 
   @HostBinding('style.borderLeftColor')
   get getColor() {
-    return this.active? this.sgHightlight : ''
+    return this.active ? this.sgHightlight : ''
   }
 
   active = false;
@@ -32,8 +32,6 @@ export class HightlightDirective {
 
   ngOnInit() {
     this.elem.nativeElement.style.borderLeftColor = this.sgHightlight
-
-
   }
 }
 
