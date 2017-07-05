@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Album } from './interfaces';
 import { MusicService } from './music.service'
 
@@ -27,7 +26,6 @@ export class MusicSearchComponent implements OnInit {
 
   authorise() {
     let client_id = "708ac681205a45a5b91d82112ea67d80";
-
 
     window.location.replace('https://accounts.spotify.com/authorize?client_id=708ac681205a45a5b91d82112ea67d80&redirect_uri=http://localhost:4200/&response_type=token')
   }

@@ -1,19 +1,19 @@
+// import all modules needed by app from @angular or from app components/modules/services
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { PlaylistsListComponent } from './playlists/playlists-list.component';
 import { PlaylistsListItemComponent } from './playlists/playlists-list-item.component';
 import { PlaylistDetailsComponent } from './playlists/playlist-details.component';
 import { HightlightDirective } from './playlists/hightlight.directive';
-
 import { PlaylistsService } from './playlists/playlists.service';
 import { MusicSearchModule } from './music-search/music-search.module';
 import { HttpModule } from '@angular/http'
 
-
+// @NgModule (decor) identifies the module's own components, directives, and pipes
 @NgModule({
   declarations: [
     PlaylistsComponent,
