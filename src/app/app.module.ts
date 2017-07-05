@@ -33,7 +33,7 @@ import { HttpModule } from '@angular/http'
     // {provider: PlaylistsService, useClass: playlistsService}
     PlaylistsService
   ],
-  bootstrap: [AppComponent] // zacznij od AppComponent - zacznij budowanie
+   bootstrap: [AppComponent] // zacznij od AppComponent - zacznij budowanie
 })
 
 export class AppModule { }

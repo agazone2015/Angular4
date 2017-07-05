@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import {Playlist} from './interfaces'
+import { Playlist } from './interfaces'
 
 @Component({
   selector: 'sg-playlist-details',
@@ -46,12 +46,12 @@ export class PlaylistDetailsComponent implements OnInit {
     this.playlist = Object.assign({}, playlist);
   }
 
-  playlist:Playlist;
+  playlist: Playlist;
 
   @Output('save')
   onSave = new EventEmitter()
 
-  save(){
+  save() {
     this.onSave.emit(this.playlist)
   }
   constructor() { }

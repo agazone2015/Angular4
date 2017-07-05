@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Album } from './inerfaces';
+import { Album } from './interfaces';
 import { MusicService } from './music.service'
 
 

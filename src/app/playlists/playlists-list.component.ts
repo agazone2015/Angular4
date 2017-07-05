@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Playlist } from './interfaces'
-        
-        // wszystko to wrzucamy w [hightlight]
-        // [style.borderLeftColor]="(active == playlist? playlist.color: 'black')"
-        // (mouseenter)="active = playlist"
-        // (mouseleave)="active = false "
+
+// wszystko to wrzucamy w [hightlight]
+// [style.borderLeftColor]="(active == playlist? playlist.color: 'black')"
+// (mouseenter)="active = playlist"
+// (mouseleave)="active = false "
 
 @Component({
   selector: 'sg-playlists-list',
@@ -29,7 +29,7 @@ import { Playlist } from './interfaces'
 export class PlaylistsListComponent implements OnInit {
 
   @Input()
-  selected:Playlist;
+  selected: Playlist;
 
   @Input()
   playlists: Playlist[] = []
@@ -41,12 +41,11 @@ export class PlaylistsListComponent implements OnInit {
     this.selectedChange.emit(playlist)
   }
 
-  constructor() { 
-      
+  constructor() {
   }
 
   ngOnInit() {
-      
+
   }
 
 }
