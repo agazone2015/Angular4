@@ -6,16 +6,25 @@ import { Playlist } from './interfaces'
   selector: 'sg-playlists-list',
   template: `
     <div class="list-group">
-      <div *ngFor="let playlist of playlists" class="list-group-item" 
-      [class.active]="selected == playlist" 
-      (click)=" selectPlaylist(playlist) ">
+      <div *ngFor="let playlist of playlists" class="list-group-item color-border" 
+        [class.active]="selected == playlist" 
+
+        [style.borderLeftColor]="(active == playlist? playlist.color: 'black')"
+        (mouseenter)="active = playlist"
+        (mouseleave)="active = false "
+
+        [highlight]="playlist.color"
+
+        (click)=" selectPlaylist(playlist) ">
         {{playlist.name}}
       </div>
     </div>
   `,
-  styles: [
-
-  ]
+  styles: [`
+    .color-border {
+      border-left: 3px solid black;
+    }
+  `]
 })
 export class PlaylistsListComponent implements OnInit {
 

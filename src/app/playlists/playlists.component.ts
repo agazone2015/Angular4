@@ -27,10 +27,10 @@ export class PlaylistsComponent implements OnInit {
         id: 1, name: 'The best of Angular', color: '#ff0000', favourite: false
       },
       {
-        id: 1, name: 'The Angular', color: '#ff0000', favourite: false
+        id: 1, name: 'The Angular', color: '#00ff00', favourite: false
       },
       {
-        id: 1, name: 'The best of WebDev', color: '#ff0000', favourite: false
+        id: 1, name: 'The best of WebDev', color: '#0000ff', favourite: false
       }
     ]
 

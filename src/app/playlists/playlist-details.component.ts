@@ -5,8 +5,8 @@ import {Playlist} from './interfaces'
   selector: 'sg-playlist-details',
   template: `
 <div [hidden]="edit">
-  <p>Name {{playlist.name}}</p>
-  <p> {{playlist.favourite? "Favourite" : "Not favourite"}}</p>
+  <p>Name: {{playlist.name}}</p>
+  <p>Favourite: {{playlist.favourite? "Favourite" : "Not favourite"}}</p>
   <p [style.color]="playlist.color">Color</p>
   <button class="btn btn-default" (click)="edit = !edit">Edit</button>
 </div>
@@ -41,12 +41,15 @@ export class PlaylistDetailsComponent implements OnInit {
   edit = false;
 
   @Input('playlist')
-  set playlistSetter(playlist) {
-    this.playlist = Object.assign({}, playlist);
+  playlist:Playlist;
+
+  // set playlistSetter(playlist) {
+  //   this.playlist = Object.assign({}, playlist);
+  // }
+
+  save(){
+    
   }
-
-  playlist:Playlist
-
   constructor() { }
 
   ngOnInit() {
