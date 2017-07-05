@@ -19,13 +19,13 @@ export class HightlightDirective {
   @HostListener('mouseenter', ['$event.target'])
   activate(target) {
     this.active = true;
-    console.log('mouseleave', target)
+    console.log('mouseenter', target)
   }
 
   @HostListener('mouseleave', ['$event.target'])
   deactivate(target) {
     this.active = false;
-    //console.log('mouseleave', target)
+    console.log('mouseleave', target)
   }
 
   constructor(private elem: ElementRef) { }

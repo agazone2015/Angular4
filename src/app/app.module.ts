@@ -9,6 +9,8 @@ import { PlaylistsListItemComponent } from './playlists/playlists-list-item.comp
 import { PlaylistDetailsComponent } from './playlists/playlist-details.component';
 import { HightlightDirective } from './playlists/hightlight.directive';
 
+import { PlaylistsService } from './playlists/playlists.service'
+
 @NgModule({
   declarations: [
     PlaylistsComponent,
@@ -22,7 +24,10 @@ import { HightlightDirective } from './playlists/hightlight.directive';
     BrowserModule, //ngStyle, ngForms, ngClass ....
     FormsModule
   ],
-  providers: [],
+  providers: [
+    // {provider: PlaylistsService, useClass: playlistsService}
+    PlaylistsService
+  ],
   bootstrap: [AppComponent] // zacznij od AppComponent - zacznij budowanie
 })
 

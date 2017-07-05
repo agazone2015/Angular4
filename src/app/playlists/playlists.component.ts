@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Playlist} from './interfaces'
+import { Playlist } from './interfaces'
+
+import { PlaylistsService } from './playlists.service'
 
 @Component({
   selector: 'sg-playlists',
@@ -13,7 +15,8 @@ import {Playlist} from './interfaces'
       </div>
         <div class="col">
           <sg-playlist-details *ngIf='selectedPlaylist'
-          [playlist]='selectedPlaylist'></sg-playlist-details>
+          [playlist]='selectedPlaylist'
+          (save) = 'save($event)'></sg-playlist-details>
       </div>
   `,
   styles: []
@@ -22,19 +25,18 @@ export class PlaylistsComponent implements OnInit {
 
   selectedPlaylist;
 
-    playlists:Playlist[] = [
-      {
-        id: 1, name: 'The best of Angular', color: '#ff0000', favourite: false
-      },
-      {
-        id: 1, name: 'The Angular', color: '#00ff00', favourite: false
-      },
-      {
-        id: 1, name: 'The best of WebDev', color: '#0000ff', favourite: false
-      }
-    ]
+    playlists:Playlist[] = []
 
-    constructor() {
+    save(playlist){
+      this.service.savePlaylist(playlist); 
+      this.selectedPlaylist = playlist 
+    }
+
+    constructor(private service:PlaylistsService) {
+      // this.selectedPlaylist = this.playlists[2]
+
+      // const service = new PlaylistsService()
+      this.playlists = service.getPlaylists()
       this.selectedPlaylist = this.playlists[2]
      }
 

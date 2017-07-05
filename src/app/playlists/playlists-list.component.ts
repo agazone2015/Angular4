@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Playlist } from './interfaces'
-        // wrzucamy w [hightlight]
+        
+        // wszystko to wrzucamy w [hightlight]
         // [style.borderLeftColor]="(active == playlist? playlist.color: 'black')"
         // (mouseenter)="active = playlist"
         // (mouseleave)="active = false "
@@ -11,8 +12,6 @@ import { Playlist } from './interfaces'
     <div class="list-group">
       <div *ngFor="let playlist of playlists" class="list-group-item color-border" 
         [class.active]="selected == playlist" 
-
-       
 
         [sgHightlight]="playlist.color"
 

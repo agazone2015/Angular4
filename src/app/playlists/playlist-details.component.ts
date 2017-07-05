@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import {Playlist} from './interfaces'
 
 @Component({
@@ -9,6 +9,7 @@ import {Playlist} from './interfaces'
   <p>Favourite: {{playlist.favourite? "Favourite" : "Not favourite"}}</p>
   <p [style.color]="playlist.color">Color</p>
   <button class="btn btn-default" (click)="edit = !edit">Edit</button>
+  <button class="btn btn-success" (click)="save()">Save</button>
 </div>
 
 <hr/>
@@ -30,7 +31,7 @@ import {Playlist} from './interfaces'
         <input type="color" [(ngModel)]="playlist.color">
 
         <button class="btn btn-default" (click)="edit = !edit">Cancel</button>
-        <button class="btn btn-success">Save</button>
+        <button class="btn btn-success" (click)="save()">Save</button>
     </div>
   </div>
   `,
@@ -41,14 +42,17 @@ export class PlaylistDetailsComponent implements OnInit {
   edit = false;
 
   @Input('playlist')
+  set playlistSetter(playlist) {
+    this.playlist = Object.assign({}, playlist);
+  }
+
   playlist:Playlist;
 
-  // set playlistSetter(playlist) {
-  //   this.playlist = Object.assign({}, playlist);
-  // }
+  @Output('save')
+  onSave = new EventEmitter()
 
   save(){
-    
+    this.onSave.emit(this.playlist)
   }
   constructor() { }
 
