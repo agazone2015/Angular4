@@ -7,6 +7,7 @@ import { PlaylistsComponent } from './playlists/playlists.component';
 import { PlaylistsListComponent } from './playlists/playlists-list.component';
 import { PlaylistsListItemComponent } from './playlists/playlists-list-item.component';
 import { PlaylistDetailsComponent } from './playlists/playlist-details.component';
+import { HightlightDirective } from './playlists/hightlight.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PlaylistDetailsComponent } from './playlists/playlist-details.component
     AppComponent,
     PlaylistsListComponent,
     PlaylistsListItemComponent,
-    PlaylistDetailsComponent
+    PlaylistDetailsComponent,
+    HightlightDirective
   ],
   imports: [
     BrowserModule, //ngStyle, ngForms, ngClass ....

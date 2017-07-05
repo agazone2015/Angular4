@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Playlist } from './interfaces'
-
+        // wrzucamy w [hightlight]
+        // [style.borderLeftColor]="(active == playlist? playlist.color: 'black')"
+        // (mouseenter)="active = playlist"
+        // (mouseleave)="active = false "
 
 @Component({
   selector: 'sg-playlists-list',
@@ -9,11 +12,9 @@ import { Playlist } from './interfaces'
       <div *ngFor="let playlist of playlists" class="list-group-item color-border" 
         [class.active]="selected == playlist" 
 
-        [style.borderLeftColor]="(active == playlist? playlist.color: 'black')"
-        (mouseenter)="active = playlist"
-        (mouseleave)="active = false "
+       
 
-        [highlight]="playlist.color"
+        [sgHightlight]="playlist.color"
 
         (click)=" selectPlaylist(playlist) ">
         {{playlist.name}}
