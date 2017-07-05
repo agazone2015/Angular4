@@ -7,9 +7,9 @@ import { Album } from './inerfaces'
   <div class="card-group">
     <div class="card" *ngFor="let album of albums">
       <img class="card-img-top img-responsive" [src]="album.images[0].url" alt="Card image cap">
-      <div class="card-block">
-        <h4 class="card-title">{{album.name}}</h4>
-      </div>
+        <div class="card-block">
+          <h4 class="card-title">{{album.name}}</h4>
+        </div>
     </div>
   </div>
   `,

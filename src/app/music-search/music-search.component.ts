@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import { Album } from './inerfaces'
+
+import { Album } from './inerfaces';
+import { MusicService } from './music.service'
 
 
 @Component({
@@ -33,21 +34,9 @@ export class MusicSearchComponent implements OnInit {
 
   albums:Album[] = []
 
-  constructor(private http: Http) {
-    var match = window.location.hash.match(/#access_token=(.*?)&/)
-    var token = match && match[1]
-    console.log(token)
-
-    var query = 'batman'
-
-    //jQuery.get('...').then(response)
-    this.http.get(`https://api.spotify.com/v1/search?type=album&market=PL&query=${query}`, {
-      headers: new Headers({
-        'Authorization': `Bearer ${token}`
-      })
-    }).subscribe(response => {
-      this.albums = response.json().albums.items;
-    })
+  constructor(private service:MusicService){
+    this.service.search('alice')
+    this.service.getAlbums$().subscribe(albums => this.albums = albums)
   }
 
   ngOnInit() {
