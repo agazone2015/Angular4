@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "angular-lipiec" //nazwa app
+    "name": "angular-lipiec" 
   },
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",  // production package
+      "outDir": "dist",  
       "assets": [
         "assets",
         "favicon.ico"
@@ -17,7 +17,7 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "sg", //prefix dla @Directives
+      "prefix": "sg", 
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "styles.css"

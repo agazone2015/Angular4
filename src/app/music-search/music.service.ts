@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import {Album} from './interfaces'
+import {Album} from './interfaces';
+
 
 //import 'rxjs/Rx
 import {Observable, Subject, BehaviorSubject} from 'rxjs'

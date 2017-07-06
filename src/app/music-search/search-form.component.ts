@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MusicService } from './music.service'
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms'
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'sg-search-form',
@@ -33,8 +36,14 @@ export class SearchFormComponent implements OnInit {
       'query': this.query
     })
 
+
+// http://reactivex.io
+// http://reactivex.io/manual/tutorial.html
     this.queryForm.get('query')
     .valueChanges
+    .filter( query => query.length >= 3)
+    .distinctUntilChanged()
+    .debounceTime(400)
     .subscribe( query => this.search (query) )
 
     //console.log(this.queryForm)
