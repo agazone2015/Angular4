@@ -5,7 +5,8 @@ import { AlbumListComponent } from './album-list.component';
 import { AlbumComponent } from './album.component';
 import { SearchFormComponent } from './search-form.component';
 import { MusicService } from './music.service';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { ShortenPipe } from './shorten.pipe'
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms'
     MusicSearchComponent, 
     AlbumListComponent, 
     AlbumComponent, 
-    SearchFormComponent
+    SearchFormComponent, 
+    ShortenPipe
   ],
   // exports the utility pipe, directive, and component classes as expected.
   exports: [

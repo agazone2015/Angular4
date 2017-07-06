@@ -8,7 +8,7 @@ import { Album } from './interfaces'
     <div class="card" *ngFor="let album of albums">
       <img class="card-img-top img-responsive" [src]="album.images[0].url" alt="Card image cap">
         <div class="card-block">
-          <h4 class="card-title">{{album.name}}</h4>
+          <h4 class="card-title">{{ album.name | shorten:25 }}</h4>
         </div>
     </div>
   </div>

@@ -17,9 +17,10 @@ import { Observable } from 'rxjs'
         <p *ngIf="query.errors?.minlength"> Text it too short </p>
         <p *ngIf="query.errors?.censor"> Text is not allowed </p>
         {{query.errors | json}}
-         <p *ngIf="queryForm.pending"> Please wait checking.. </p>
+         <p *ngIf="queryForm.pending"> Please wait checking... </p>
+         <button [disabled]="queryForm.invalid">Search</button>
 
-        <!-- <form-errors [field]="query"></form-errors> ZADANKO!!!!!!!!!!!!-->
+        <!--<form-errors[field]="query"></form-errors> ZADANKO!!!!!!!!!!! -->
       </div>
     </form>
   `,
