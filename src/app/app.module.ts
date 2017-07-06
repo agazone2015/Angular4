@@ -11,7 +11,8 @@ import { PlaylistDetailsComponent } from './playlists/playlist-details.component
 import { HightlightDirective } from './playlists/hightlight.directive';
 import { PlaylistsService } from './playlists/playlists.service';
 import { MusicSearchModule } from './music-search/music-search.module';
-import { HttpModule } from '@angular/http'
+import { HttpModule } from '@angular/http';
+import { routing } from './app.routing'
 
 // @NgModule (decor) identifies the module's own components, directives, and pipes
 @NgModule({
@@ -27,7 +28,8 @@ import { HttpModule } from '@angular/http'
     BrowserModule, //ngStyle, ngForms, ngClass ....
     FormsModule,
     MusicSearchModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [
     // {provider: PlaylistsService, useClass: playlistsService}

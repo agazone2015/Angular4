@@ -21,9 +21,9 @@ import { MusicService } from './music.service'
   `,
   styles: []
 })
+
+
 export class MusicSearchComponent implements OnInit {
-
-
   authorise() {
     let client_id = "708ac681205a45a5b91d82112ea67d80";
 
@@ -33,7 +33,7 @@ export class MusicSearchComponent implements OnInit {
   albums:Album[] = []
 
   constructor(private service:MusicService){
-    this.service.search('alice')
+    //this.service.search('alice')
     this.service.getAlbums$().subscribe(albums => this.albums = albums)
   }
 
