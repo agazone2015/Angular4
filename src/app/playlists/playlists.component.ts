@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Playlist } from './interfaces'
-import { PlaylistsService } from './playlists.service'
+import { Playlist } from './interfaces';
+import { PlaylistsService } from './playlists.service';
+import { ActivatedRoute, Router } from '@angular/router'
+
 
 @Component({
   selector: 'sg-playlists',
@@ -8,8 +10,7 @@ import { PlaylistsService } from './playlists.service'
     <div class="row">
       <div class="col">
         <sg-playlists-list 
-          (select)="selectedPlaylist = $event" 
-          [playlists]='playlists'
+          [playlists]='playlists' (select)="select($event)"
           [selected]='selectedPlaylist'>
         </sg-playlists-list>
       </div>
@@ -24,17 +25,23 @@ export class PlaylistsComponent implements OnInit {
 
   selectedPlaylist;
 
+  select(playlist) {
+    this.selectedPlaylist = playlist
+    this.router.navigate(['playlists', playlist.id])
+  }
+
     playlists:Playlist[] = []
 
-    save(playlist){
-      this.service.savePlaylist(playlist); 
-      this.selectedPlaylist = playlist 
-    }
+    
 
-    constructor(private service:PlaylistsService) {
+    constructor(private service:PlaylistsService, private route: ActivatedRoute, private router: Router) {
       // const service = new PlaylistsService()
       this.playlists = service.getPlaylists()
-      this.selectedPlaylist = this.playlists[2]
+
+      this.route.firstChild.params.pluck('id').subscribe(id => {
+        this.selectedPlaylist = this.service.getPlaylist(id)
+      })
+  
      }
 
   ngOnInit() {
