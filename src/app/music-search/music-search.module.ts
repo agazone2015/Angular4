@@ -6,14 +6,16 @@ import { AlbumComponent } from './album.component';
 import { SearchFormComponent } from './search-form.component';
 import { MusicService } from './music.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ShortenPipe } from './shorten.pipe'
+import { ShortenPipe } from './shorten.pipe';
+import { routing } from './music-search.routing'
 
 
 @NgModule({
   // imports the CommonModule because its component needs common directives.
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    routing
   ],
   // The application won't compile until you declare the contact component, directive, and pipe. 
   // Update the declarations in the AppModule accordingly:
@@ -24,7 +26,8 @@ import { ShortenPipe } from './shorten.pipe'
     AlbumListComponent, 
     AlbumComponent, 
     SearchFormComponent, 
-    ShortenPipe
+    ShortenPipe,
+
   ],
   // exports the utility pipe, directive, and component classes as expected.
   exports: [
