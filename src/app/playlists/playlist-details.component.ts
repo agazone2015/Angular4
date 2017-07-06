@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Playlist } from './interfaces'
+import { PlaylistsService } from './playlists.service'
+
 
 @Component({
   selector: 'sg-playlist-details',
@@ -66,11 +68,14 @@ export class PlaylistDetailsComponent implements OnInit {
   @Output('save')
     onSave = new EventEmitter()
 
+  
+  constructor(private service:PlaylistsService) { }
+
   save(formRef) {
-    // this.onSave.emit(this.playlist)
-    console.log(formRef)
+    if(formRef.valid) {
+      this.service.savePlaylist( Object.assign({}, this.playlist, formRef.value))
+    }
   }
-  constructor() { }
 
   ngOnInit() {
   }

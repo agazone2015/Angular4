@@ -36,7 +36,8 @@ export class PlaylistsComponent implements OnInit {
 
     constructor(private service:PlaylistsService, private route: ActivatedRoute, private router: Router) {
       // const service = new PlaylistsService()
-      this.playlists = service.getPlaylists()
+      service.getPlaylists().subscribe(playlists => this.playlists = playlists)
+      //this.playlists = service.getPlaylists()
 
       this.route.firstChild.params.pluck('id').subscribe(id => {
         this.selectedPlaylist = this.service.getPlaylist(id)

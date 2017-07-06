@@ -1,0 +1,40 @@
+{
+  "playlists": [
+    {
+      "id": 1,
+      "name": "The best of Angular",
+      "color": "#ff0000",
+      "favourite": false
+    },
+    {
+      "id": 2,
+      "name": "The Angular",
+      "color": "#00ff00",
+      "favourite": false
+    },
+    {
+      "id": 3,
+      "name": "The best of WebDevdhdfshsfd",
+      "color": "#0000ff",
+      "favourite": false
+    },
+    {
+      "id": 4,
+      "name": "The best oooooof WebDev",
+      "color": "#000fff",
+      "favourite": false
+    },
+    {
+      "name": "adfgfadgh",
+      "id": 5
+    },
+    {
+      "name": "adfgfadgh",
+      "id": 6
+    },
+    {
+      "name": "gggggg",
+      "id": 7
+    }
+  ]
+}

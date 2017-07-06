@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Playlist} from './interfaces';
+import { Http } from '@angular/http';
 
 //@Injectable() lets Angular know that a class can be used with the dependency injector.
 @Injectable()
@@ -12,28 +13,39 @@ export class PlaylistsService {
     ]
 
     getPlaylists() {
-      return this.playlists;
+      return this.http.get('http://localhost:3000/playlists')
+      .map(response => response.json())
     }
 
     getPlaylist(id) {
       return this.playlists.find( (playlist) => playlist.id == id ) ;
     }
 
+    url = 'http://localhost:3000/playlists/'
+
     savePlaylist(playlist) {
       //debugger
       if(playlist.id){
+
+        this.http.put( this.url + playlist.id, playlist).subscribe(response => {
+
+        })
         //update
         // find index and (in the function replace this index with playlist.id) 
-        const index = this.playlists.findIndex( ({id}) => playlist.id == id ) 
+        //const index = this.playlists.findIndex( ({id}) => playlist.id == id ) 
         // this.playlist.splice(index, od 1, zamien playliste)
-        this.playlists.splice(index, 1, playlist) 
+        //this.playlists.splice(index, 1, playlist) 
       } else {
-        playlist.id = Date.now()
-        this.playlists.push(playlist)
+        this.http.post(this.url, playlist).subscribe(response => {
+          
+        })
+        //playlist.id = Date.now()
+        //this.playlists.push(playlist)
       }
     }
 
-  constructor() { 
+  constructor(private http:Http) { 
+
   }
 
 }
