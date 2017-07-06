@@ -14,10 +14,8 @@ import { PlaylistsService } from './playlists.service'
         </sg-playlists-list>
       </div>
         <div class="col">
-          <sg-playlist-details *ngIf='selectedPlaylist'
-            [playlist]='selectedPlaylist'
-            (save) = 'save($event)'>
-          </sg-playlist-details>
+            <router-outlet></router-outlet>
+          </div>
       </div>
   `,
   styles: []

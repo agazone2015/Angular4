@@ -4,7 +4,15 @@ import { Playlist } from './interfaces'
 @Component({
   selector: 'sg-playlist-details',
   template: `
+  <h3>Playlist details</h3>
+
+    <ng-template #noPlaylist>
+      <p>Select</p>
+    </ng-template>
+    
+<div *ngIf="playlist; else noPlaylist">
     <div [hidden]="edit">
+
       <p>Name: {{playlist.name}}</p>
       <p>Favourite: {{playlist.favourite? "Favourite" : "Not favourite"}}</p>
       <p [style.color]="playlist.color">Color</p>
@@ -33,6 +41,7 @@ import { Playlist } from './interfaces'
         <button class="btn btn-default" (click)="edit = !edit">Cancel</button>
         <button class="btn btn-success" (click)="save()">Save</button>
     </div>
+  </div>
   </div>
   `,
   styles: []

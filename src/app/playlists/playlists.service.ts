@@ -15,6 +15,10 @@ export class PlaylistsService {
       return this.playlists;
     }
 
+    getPlaylist(id) {
+      return this.playlists.find( (playlist) => playlist.id == id ) ;
+    }
+
     savePlaylist(playlist) {
       //debugger
       if(playlist.id){

@@ -12,7 +12,8 @@ import { HightlightDirective } from './playlists/hightlight.directive';
 import { PlaylistsService } from './playlists/playlists.service';
 import { MusicSearchModule } from './music-search/music-search.module';
 import { HttpModule } from '@angular/http';
-import { routing } from './app.routing'
+import { routing } from './app.routing';
+import { PlaylistContainerComponent } from './playlists/playlist-container.component'
 
 // @NgModule (decor) identifies the module's own components, directives, and pipes
 @NgModule({
@@ -22,7 +23,8 @@ import { routing } from './app.routing'
     PlaylistsListComponent,
     PlaylistsListItemComponent,
     PlaylistDetailsComponent,
-    HightlightDirective
+    HightlightDirective,
+    PlaylistContainerComponent
   ],
   imports: [
     BrowserModule, //ngStyle, ngForms, ngClass ....
