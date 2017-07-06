@@ -24,25 +24,31 @@ import { Playlist } from './interfaces'
 
 
     <div [hidden]="!edit">
+
+    <form #formRef="ngForm" (ngSubmit)="save(formRef)">
       <div class="form-group">
         <label>Nazwa: </label>
-          <input type="text" class="form-control" [(ngModel)]="playlist.name">
+          <input type="text" class="form-control" [(ngModel)]="playlist.name" name="name">
       </div>
 
     <div class="form-group">
       <label>Favourite: </label>
-        <input type="checkbox" [(ngModel)]="playlist.favourite"> 
+        <input type="checkbox" [(ngModel)]="playlist.favourite"  name="favourite"> 
     </div>
 
     <div class="form-group">
       <label>Color: </label>
-        <input type="color" [(ngModel)]="playlist.color">
+        <input type="color" [(ngModel)]="playlist.color" name="color">
 
         <button class="btn btn-default" (click)="edit = !edit">Cancel</button>
-        <button class="btn btn-success" (click)="save()">Save</button>
+        <input type="submit" class="btn btn-success" value="Save">
     </div>
+  
+      </form>
   </div>
   </div>
+
+
   `,
   styles: []
 })
@@ -58,10 +64,11 @@ export class PlaylistDetailsComponent implements OnInit {
   playlist: Playlist;
 
   @Output('save')
-  onSave = new EventEmitter()
+    onSave = new EventEmitter()
 
-  save() {
-    this.onSave.emit(this.playlist)
+  save(formRef) {
+    // this.onSave.emit(this.playlist)
+    console.log(formRef)
   }
   constructor() { }
 
