@@ -22,5 +22,5 @@ const routes: Routes = [
 
 export const routing = RouterModule.forRoot(routes, {
   enableTracing: true,
-  useHash: true,
+  //useHash: true,
 })
